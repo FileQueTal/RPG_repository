@@ -6,7 +6,7 @@ const resultado = document.getElementById("resultado");
 let rotacaoX = -20;
 let rotacaoY = -25;
 
-// Rotação necessária para deixar cada face voltada para a frente.
+// rotação gay do dado
 const faces = {
     1: [0, 0],
     2: [0, -90],
@@ -21,7 +21,7 @@ botao.addEventListener("click", () => {
 
     const [x, y] = faces[numero];
 
-    // Adiciona voltas completas para simular o lançamento.
+    // rolagem do dado visualmente
     rotacaoX += 720 + x - rotacaoX % 360;
     rotacaoY += 720 + y - rotacaoY % 360;
 
