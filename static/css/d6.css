@@ -1,0 +1,58 @@
+.dado_d6 {
+    --tamanho: 120px;
+    --face-distance: 60px;
+
+    width: var(--tamanho);
+    height: var(--tamanho);
+    position: relative;
+    margin: auto;
+    transform-style: preserve-3d;
+
+    transform: rotateX(-20deg) rotateY(-25deg);
+    transition: transform 3s cubic-bezier(.2, .8, .2, 1);
+}
+
+.face {
+    position: absolute;
+    width: var(--tamanho);
+    height: var(--tamanho);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f5f0df;
+    color: #202020;
+    border: 3px solid #c6bfae;
+    border-radius: 12px;
+
+    font-size: 52px;
+    font-weight: bold;
+    backface-visibility: hidden;
+}
+
+/* Cada face fica a 60px do centro do cubo */
+
+.face-1 {
+    transform: translateZ(var(--face-distance));
+}
+
+.face-6 {
+    transform: rotateY(180deg) translateZ(var(--face-distance));
+}
+
+.face-2 {
+    transform: rotateY(90deg) translateZ(var(--face-distance));
+}
+
+.face-5 {
+    transform: rotateY(-90deg) translateZ(var(--face-distance));
+}
+
+.face-3 {
+    transform: rotateX(90deg) translateZ(var(--face-distance));
+}
+
+.face-4 {
+    transform: rotateX(-90deg) translateZ(var(--face-distance));
+}

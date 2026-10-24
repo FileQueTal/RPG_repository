@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG_profile</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/form_style.css')}}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+        label{
+            font-family: Rubik Glitch;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="left: 80%; animation-delay: 4s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="form-header">
+            <h1>Made your character</h1>
+            <p>Get ready to start your adventure</p>
+        </div>
+
+
+            <div class="form-card">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group short-field">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                         <div class="form-group short-field">
+                            <label for="race">Race</label>
+                            <input type="text" id="race" name="race">
+                        </div>
+                    </div>
+                </form>
+
+                    <div class="form-group short-field">
+                        <label class="custom-file-upload" id="fileInput" for="image">
+                            Image
+                            <input type="file" id="image">
+                        </label>
+                        <pre id="fileContent"></pre>
+                    </div>
+
+                    <script>
+
+                            const fileInput = document.getElementById('fileInput');
+                            const fileContent = document.getElementById('fileContent');
+                            
+                            fileInput.addEventListener('change', (e) => {
+                            const file = e.target.files[0]; // Get the first selected file
+                            if (!file) return;  
+                            
+                            // Read the file as text
+                            const reader = new FileReader();
+                            reader.onload = (event) => {
+                                fileContent.textContent = event.target.result; // Display content
+                            };
+                            reader.onerror = () => alert('Error reading file: ' + reader.error);
+                            reader.readAsText(file); // Use readAsDataURL for images, readAsArrayBuffer for binary
+                            });
+
+                    </script>
+
+                <form id="contactForm">
+                     <div class="form-group short-field">
+                        <label for="class">Class <span class="required">*</span></label>
+                        <input type="text" id="class" name="class">
+                        <label for="level">Level <span class="required">*</span></label>
+                        <input type="number" id="level" name="level">
+                    </div>
+
+                    <div class="form-group tall-field">
+                        <div class="form-row">
+                            <div class="form-group short-field">
+                                <label for="strengh">Strengh <span class="required">*</span></label>
+                                <input type="number" id="strengh" name="strengh">
+                            </div>
+                            <div class="form-group short-field">
+                                <label for="dextery">Dextery <span class="required">*</span></label>
+                                <input type="number" id="dextery" name="dextery">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group short-field">
+                                <label for="con">Constitution <span class="required">*</span></label>
+                                <input type="number" id="con" name="con">
+                            </div>
+                            <div class="form-group short-field">
+                                <label for="int">Inteligence <span class="required">*</span></label>
+                                <input type="number" id="int" name="int">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group short-field">
+                                <label for="wis">Wisdom <span class="required">*</span></label>
+                                <input type="number" id="wis" name="wis">
+                            </div>
+                            <div class="form-group short-field">
+                                <label for="char">Charisma <span class="required">*</span></label>
+                                <input type="number" id="char" name="char">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Submit Request</span>
+                        <span class="loading" style="display: none;"></span>
+                    </button>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

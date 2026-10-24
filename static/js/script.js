@@ -1,4 +1,5 @@
-const lengthdice = 6
+const d6 = 6
+const d20 = 20
 const diceboard = document.getElementById("diceboard")
 const botao = document.getElementById("rolar");
 const resultado = document.getElementById("resultado");
@@ -6,17 +7,13 @@ const resultado = document.getElementById("resultado");
 let rotacaoX = -20;
 let rotacaoY = -25;
 
-
+//mod inspired from dice-roll by ThomasGRBT
 
 //creacion de datos
-function createDice(diceLength, parentElem){
+function createDice(diceLength, parentElem, dice){
     let newDiceWrapper = "";
     let newDice = "";
-
-    if (!parentElem) {
-        console.error("Parent element not found!");
-        return;
-    }
+    dice=d6;
 
     for(i = 1; i <= diceLength; i++){
         console.log("Hello-LOOP, I'm here!");
@@ -25,9 +22,10 @@ function createDice(diceLength, parentElem){
 
         newDice = document.createElement("div");
         newDice.setAttribute("id", "dado");
-        newDice.classList.add("dado");
+        newDice.classList.add(`dado_d${dice}`);
 
-        for (j = 1; j <= lengthdice; j++){
+        for (j = 1; j <= d6; j++){
+            console.log("Hello-DICELOOP, I'm here!");
             let newFace = document.createElement("div");
             newFace.classList.add("face", `face-${j}`);
             newFace.textContent = j;
@@ -41,7 +39,7 @@ function createDice(diceLength, parentElem){
     newDiceWrapper.appendChild(newDice);
 };
 
-//agregando datos al tablero
+//agregando dados al tablero
 createDice(1, diceboard);
 const dado = document.getElementById("dado");
 
