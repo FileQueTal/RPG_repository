@@ -1,0 +1,103 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #171923;
+    color: #f7fafc;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.scene {
+    width: 160px;
+    height: 160px;
+    margin: 40px auto;
+    perspective: 600px;
+}
+
+.dado {
+    --tamanho: 120px;
+
+    width: var(--tamanho);
+    height: var(--tamanho);
+    position: relative;
+    margin: auto;
+    transform-style: preserve-3d;
+
+    transform: rotateX(-20deg) rotateY(-25deg);
+    transition: transform 3s cubic-bezier(.2, .8, .2, 1);
+}
+
+.face {
+    position: absolute;
+    width: var(--tamanho);
+    height: var(--tamanho);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f5f0df;
+    color: #202020;
+    border: 3px solid #c6bfae;
+    border-radius: 12px;
+
+    font-size: 52px;
+    font-weight: bold;
+    backface-visibility: hidden;
+}
+
+/* Cada face fica a 60px do centro do cubo */
+
+.frente {
+    transform: translateZ(60px);
+}
+
+.tras {
+    transform: rotateY(180deg) translateZ(60px);
+}
+
+.direita {
+    transform: rotateY(90deg) translateZ(60px);
+}
+
+.esquerda {
+    transform: rotateY(-90deg) translateZ(60px);
+}
+
+.topo {
+    transform: rotateX(90deg) translateZ(60px);
+}
+
+.base {
+    transform: rotateX(-90deg) translateZ(60px);
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #8b5cf6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #7c3aed;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
