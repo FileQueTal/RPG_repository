@@ -8,19 +8,10 @@
          <script src="{{ url_for('static', filename='js/script.js') }}"defer></script>
 </head>
 <body>
-    <main class="container">
+    <main class="container" id="container">
         <h1>Rolagem de dados</h1>
 
-        <div class="scene">
-            <div class="dado" id="dado">
-                <div class="face frente">1</div>
-                <div class="face tras">6</div>
-                <div class="face direita">2</div>
-                <div class="face esquerda">5</div>
-                <div class="face topo">3</div>
-                <div class="face base">4</div>
-            </div>
-        </div>
+        <div id="diceboard"></div>
 
         <button id="rolar" type="button">Rolar dado</button>
 </body>

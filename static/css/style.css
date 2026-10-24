@@ -59,27 +59,27 @@ body {
 
 /* Cada face fica a 60px do centro do cubo */
 
-.frente {
+.face-1 {
     transform: translateZ(60px);
 }
 
-.tras {
+.face-6 {
     transform: rotateY(180deg) translateZ(60px);
 }
 
-.direita {
+.face-2 {
     transform: rotateY(90deg) translateZ(60px);
 }
 
-.esquerda {
+.face-5 {
     transform: rotateY(-90deg) translateZ(60px);
 }
 
-.topo {
+.face-3 {
     transform: rotateX(90deg) translateZ(60px);
 }
 
-.base {
+.face-4 {
     transform: rotateX(-90deg) translateZ(60px);
 }
 
